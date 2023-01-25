@@ -14,4 +14,10 @@ public interface MappingRepository extends JpaRepository<EhrMapping, UUID> {
     List<String>getSourceFieldNameBySourceEhrNameAndServiceLineAndTargetEhrName(String sourceEhrName, String serviceLine,
                                                                                    String targetEhrName);
 
+    @Query(value = CustomQuery.QUERY_TO_GET_TARGET_FIELD)
+    String getTargetFieldNameBySourceEhrNameAndServiceLineAndTargetEhrNameAAndSourceFieldName(String sourceEhrName,
+                                                                                              String serviceLine,
+                                                                                              String targetEhrName,
+                                                                                              String sourceFieldName);
+
 }
